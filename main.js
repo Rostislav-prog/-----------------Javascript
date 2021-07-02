@@ -4,6 +4,8 @@ const catalogJs = document.querySelector('.catalog_js'); // присваевае
 
 const indexJs = document.querySelector('.index_js');
 
+let basketData = document.querySelector('.header__right');
+
 const products = [
     { id: 556688, title: 'Куртка', prise: 1500, description: 'Стрёмная синяя куртка.', image: 'product_1.webp' },
     { id: 556689, title: 'Костюм', prise: 15000, description: 'Чёрный офисный костюм.', image: 'product_2.webp' },
@@ -45,12 +47,12 @@ const renderProductsList = (list = products) => { // функция добавл
 
 renderProductsList();
 
-const renderIndexList = (list = productsIndex) => { // функция добавляет карточки товара в родительский блок html на странице Index (не работает)
-    let productsList = list.map(item => renderProductsItem(item)).join('\n');
-    indexJs.insertAdjacentHTML('beforeend', productsList);
-}
+// const renderIndexList = (list = productsIndex) => { // функция добавляет карточки товара в родительский блок html на странице Index (не работает)
+//     let productsList = list.map(item => renderProductsItem(item)).join('\n');
+//     indexJs.insertAdjacentHTML('beforeend', productsList);
+// }
 
-renderIndexList();
+// renderIndexList();
 
 function productsSearchForId(i) { // функция выполняет поиск значений в массиве products, если совпадает, отдаёт объект, где хранилось значение
     for (let y = 0; y < products.length; y++) {
@@ -70,6 +72,16 @@ for (let i = 0; i < product.length; i++) {
         let id = (this.id);
         let obgid = productsSearchForId(id);
         basket.push(obgid);
-        console.log(basket);
+        // console.log(basket);
+        basketQuantityItem();
     })
 }
+
+function basketQuantityItem(list = basket) { //функция отрисовывает круглешок с кол-м товара в шапке
+    // console.log(list.length);
+    let numberLenght = `<div class="basket_data">${list.length}</div>`;
+    basketData.insertAdjacentHTML('beforeend', numberLenght);
+};
+
+
+
