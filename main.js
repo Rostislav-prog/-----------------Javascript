@@ -1,11 +1,13 @@
 "use strict";  // этот код работает в современном режиме
 
-const productsWrap = document.querySelector('.products_wrap'); // присваеваем родительскому блоку с товарами константу
+const catalogJs = document.querySelector('.catalog_js'); // присваеваем родительскому блоку с товарами константу
+
+const indexJs = document.querySelector('.index_js');
 
 const products = [
     { id: 556688, title: 'Куртка', prise: 1500, description: 'Стрёмная синяя куртка.', image: 'product_1.webp' },
     { id: 556689, title: 'Костюм', prise: 15000, description: 'Чёрный офисный костюм.', image: 'product_2.webp' },
-    { id: 556691, title: 'Кепка', prise: 150, description: 'Кепка для подролстка дибила', image: 'product_3.webp' },
+    { id: 556691, title: 'Кепка', prise: 150, description: 'Кепка для подростка дибила', image: 'product_3.webp' },
     { id: 556692, title: 'Борода', prise: 150, description: 'Шикарная чёрная борода', image: 'product_4.webp' },
     { id: 556693, title: 'Товар', prise: 150, description: 'Known for her sculptural takes on traditional tailoring.', image: 'product_5.webp' },
     { id: 556694, title: 'Товар', prise: 150, description: 'Known for her sculptural takes on traditional tailoring.', image: 'product_6.webp' },
@@ -13,6 +15,8 @@ const products = [
     { id: 556696, title: 'Товар', prise: 150, description: 'Known for her sculptural takes on traditional tailoring.', image: 'product_8.webp' },
     { id: 556697, title: 'Товар', prise: 150, description: 'Known for her sculptural takes on traditional tailoring.', image: 'product_12.webp' },
 ]; // каталог товаров
+
+const productsIndex = products.slice(5); // укороченный список товаров для страницы index
 
 const basket = []; // корзина в магазинe
 
@@ -36,10 +40,17 @@ const renderProductsItem = ({ id, title, prise, description, image }) => {  //ф
 
 const renderProductsList = (list = products) => { // функция добавляет карточки товара в родительский блок html
     let productsList = list.map(item => renderProductsItem(item)).join('\n');
-    productsWrap.insertAdjacentHTML('beforeend', productsList);
+    catalogJs.insertAdjacentHTML('beforeend', productsList);
 }
 
 renderProductsList();
+
+// const renderIndexList = (list = productsIndex) => { // функция добавляет карточки товара в родительский блок html
+//     let productsList = list.map(item => renderProductsItem(item)).join('\n');
+//     indexJs.insertAdjacentHTML('beforeend', productsList);
+// }
+
+// renderIndexList();
 
 function productsSearchForId(i) { // функция выполняет поиск значений в массиве products, если совпадает, отдаёт объект, где хранилось значение
     for (let y = 0; y < products.length; y++) {
