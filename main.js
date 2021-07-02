@@ -38,19 +38,19 @@ const renderProductsItem = ({ id, title, prise, description, image }) => {  //ф
     </div>`;
 };
 
-const renderProductsList = (list = products) => { // функция добавляет карточки товара в родительский блок html
+const renderProductsList = (list = products) => { // функция добавляет карточки товара в родительский блок html на странице catalog
     let productsList = list.map(item => renderProductsItem(item)).join('\n');
     catalogJs.insertAdjacentHTML('beforeend', productsList);
 }
 
 renderProductsList();
 
-// const renderIndexList = (list = productsIndex) => { // функция добавляет карточки товара в родительский блок html
-//     let productsList = list.map(item => renderProductsItem(item)).join('\n');
-//     indexJs.insertAdjacentHTML('beforeend', productsList);
-// }
+const renderIndexList = (list = productsIndex) => { // функция добавляет карточки товара в родительский блок html на странице Index (не работает)
+    let productsList = list.map(item => renderProductsItem(item)).join('\n');
+    indexJs.insertAdjacentHTML('beforeend', productsList);
+}
 
-// renderIndexList();
+renderIndexList();
 
 function productsSearchForId(i) { // функция выполняет поиск значений в массиве products, если совпадает, отдаёт объект, где хранилось значение
     for (let y = 0; y < products.length; y++) {
