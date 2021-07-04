@@ -82,3 +82,6 @@ function basketQuantityItem(list = basket) { //функция отрисовыв
     let numberLenght = `<div class="basket_data">${list.length}</div>`;
     basketData.insertAdjacentHTML('beforeend', numberLenght);
 };
+
+
+
