@@ -263,6 +263,18 @@ body {
   }
 }
 
+.basket_data {
+  position: absolute;
+  color: white;
+  border: 1px solid red;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  background-color: red;
+  margin-left: 150px;
+}
+
 .promo {
   background-color: #f1e4e6;
 }
